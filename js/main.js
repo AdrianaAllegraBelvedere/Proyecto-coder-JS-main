@@ -16,9 +16,28 @@ let carrito =[];
 
 
 let acumulador = ``;
+let acumuladorDescuentos = ``;
 let productosCarrito = '';
 
 productos.forEach((producto) => {
+   if(producto.descuento){
+    acumuladorDescuentos += `<div class="col mb-5">
+    <div class="card h-100">
+        <img class="card-img-top" src="${producto.img}" alt="..." />                            
+        <div class="card-body p-4">
+            <div class="text-center">
+                <h5 class="fw-bolder"> ${producto.nombre} </h5>
+                <p> $ ${producto.precio} </p>
+            </div>
+        </div>
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"> <button class="btn btn-outline-dark mt-auto" href="#" onclick="agregarAlCarrito('${producto.nombre}')">Agregar al carrito</button>
+            </div>
+        </div>
+
+    </div>
+</div>`;
+   }else{
     acumulador += `<div class="col mb-5">
     <div class="card h-100">
         <img class="card-img-top" src="${producto.img}" alt="..." />                            
@@ -35,12 +54,13 @@ productos.forEach((producto) => {
 
     </div>
 </div>`;
+   }
 })
 
+$('#productos').append(acumulador)
+$('#descuentos').append(acumuladorDescuentos);
 
 
-
-document.getElementById('productos').innerHTML = acumulador;
 
 function agregarAlCarrito(title){
     const productoEncontrado = productos.find(productos => productos.nombre === title )
