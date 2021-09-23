@@ -16,7 +16,7 @@ let carrito =[];
 
 
 let acumulador = ``;
-let productosCarrito =``;
+let productosCarrito = '';
 
 productos.forEach((producto) => {
     acumulador += `<div class="col mb-5">
@@ -47,19 +47,18 @@ function agregarAlCarrito(title){
     carrito.push(productoEncontrado);
 
     document.getElementById('contador-carrito').innerHTML = carrito.length
-
-    
-
-    console.log(carrito)
+   
 }
 
-$('#motrar-carrito').prepend(' <p> Cart <span id="contador-carrito"  class=" contador adge bg-dark text-white ms-1 rounded-pill">0</span> </p>')
+ function mostrarCarrito(){
+    console.log(carrito)
 
-$(".contador").click( function (){
+    carrito.forEach(productoSeleccionado => {
+        
+        console.log(productoSeleccionado.nombre)
+        productosCarrito += `<h4> ${productoSeleccionado.nombre} </h4>`;
+        
+        document.getElementById('productos-carrito').innerHTML = productosCarrito;
+    });
     
-    carrito.forEach((productoSeleccionado) => {
-        productosCarrito += `<h5> ${productoSeleccionado.nombre} </h5>`;
-    })
-    document.getElementById('productos-carrito').innerHTML = productosCarrito;
-
-})
+}

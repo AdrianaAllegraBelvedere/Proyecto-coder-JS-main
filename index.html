@@ -39,7 +39,8 @@
                         <div>
                             
                             <form class="d-flex">
-                                <button id="motrar-carrito" class="btn btn-light" type="button" data-toggle="modal" data-target="#exampleModal"> 
+                                <button id="motrar-carrito"  class="btn btn-light" type="button" data-toggle="modal" data-target="#exampleModal" onclick="mostrarCarrito()"> 
+                                    <p> Cart <span id="contador-carrito"  class=" contador adge bg-dark text-white ms-1 rounded-pill">0</span> </p>
                                 </button>
                             </form>
                             <!-- Button trigger modal -->
@@ -52,7 +53,7 @@
                                     </button>
                                     </div>
                                     <div id="productos-carrito" class="modal-body">
-                                    ...
+                                    
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
