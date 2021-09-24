@@ -18,6 +18,7 @@ let carrito =[];
 let acumulador = ``;
 let acumuladorDescuentos = ``;
 let productosCarrito = '';
+obtenerProductosPublicitarios();
 
 productos.forEach((producto) => {
    if(producto.descuento){
@@ -81,4 +82,36 @@ function agregarAlCarrito(title){
         document.getElementById('productos-carrito').innerHTML = productosCarrito;
     });
     
+}
+
+
+function obtenerProductosPublicitarios(){
+
+    const productosJson = '../productos.json';
+    $(document).load(productosJson, function(respuesta, estado){
+        if(estado == "success"){
+            let { productos } = JSON.parse(respuesta);
+            CrearCards(productos);
+        }
+      });
+}
+
+function CrearCards(productos){
+
+    let acumuladorPublicitario= ``;
+    productos.forEach((producto) => {
+        acumuladorPublicitario += `<div class="col mb-5">
+        <div class="card h-100">
+            <img class="card-img-top" src="${producto.img}" alt="..." />                            
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <h5 class="fw-bolder"> ${producto.nombre} </h5>
+                </div>
+            </div>
+            
+    
+        </div>
+    </div>`;
+     });
+    $('#publcidad').append(acumuladorPublicitario);
 }
