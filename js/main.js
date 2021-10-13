@@ -14,6 +14,11 @@ const producto12 = new Producto('kit de sombras', 2300, 30, "img/producto12.jpg"
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
 let carrito =[];
 
+if (localStorage.carrito != null) {
+    carrito = JSON.parse(localStorage.carrito);
+    document.getElementById("contador-carrito").innerHTML = carrito.length;
+    
+}
 
 let acumulador = ``;
 let productosCarrito = '';
@@ -43,7 +48,6 @@ productos.forEach((producto) => {
 })
 
 $('#productos').append(acumulador)
-$('#descuentos').append(acumuladorDescuentos);
 
 
 
@@ -52,7 +56,7 @@ function agregarAlCarrito(titulo){
     let acumuladorCarrito = ``;
     let precioTotal = 0;
  
-
+   
     carrito.push(productoEncontrado);
 
     carrito.forEach(producto => {
@@ -74,21 +78,11 @@ function agregarAlCarrito(titulo){
     </button>
   </div>`;
 
-   
+  localStorage.carrito = JSON.stringify(carrito);
+  
 }
 
- function mostrarCarrito(){
-    console.log(carrito)
 
-    carrito.forEach(productoSeleccionado => {
-        
-        console.log(productoSeleccionado.nombre)
-        productosCarrito += `<h4> ${productoSeleccionado.nombre} </h4>`;
-        
-        document.getElementById('productos-carrito').innerHTML = productosCarrito;
-    });
-    
-}
  function vaciarCarrito(){
     carrito = [];
     document.getElementById('contador-carrito').innerHTML = 0
@@ -129,3 +123,4 @@ function CrearCards(productos){
      });
     $('#publcidad').append(acumuladorPublicitario);
 }
+
