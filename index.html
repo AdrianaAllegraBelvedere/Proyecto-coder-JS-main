@@ -23,8 +23,8 @@
         <!-- Navigation-->
        
         <!-- Header-->
-        <div class="hero">
-            <header class="header contenedor">
+            <header>
+                <div class="header contenedor">
                 <div class="logo">
                     <h1><a class="navbar-brand" href="index.html">Makeup for you</a></h1>
                     <nav class="navegacion">
@@ -40,9 +40,11 @@
                         
                         <div class="two columns u-pull-right">
                             <ul>
-                                <li id="contador-carrito"  class=" contador submenu">
+                                <li class=" submenu">
                                     <div class="carrito-mostrar">
-                                        <p adge bg-dark text-white ms-1 rounded-pill>0</p>
+                                        <div id="contador-carrito"  class=" contador" adge bg-dark text-white ms-1 rounded-pill>
+                                            <p >0</p>
+                                        </div>
                                         <img src="img/cart.png" id="img-carrito">
                                     </div>
                                         <div id="carrito">
@@ -50,16 +52,17 @@
                                                 <table id="lista-carrito" class="u-full-width">
                                                     <thead>
                                                         <tr>
-                                                            <th>Imagen</th>
                                                             <th>Nombre</th>
                                                             <th>Precio</th>
-                                                            <th>Cantidad</th>
                                                             <th></th>
                                                         </tr>
+
                                                     </thead>
-                                                    <tbody></tbody>
+                                                    <tbody id="tbody">
+                                                       
+                                                    </tbody>
                                                 </table>
-            
+                                                <p id="precio-total"></p>
                                                 <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                                         </div>
                                 </li>
@@ -73,7 +76,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </header>
+            <div class="hero"></div>
     
             <div class="contenido-hero contenedor">
                 <h1>Encuentra <span> el maquillahe </span>que mejor va con vos</h1>
