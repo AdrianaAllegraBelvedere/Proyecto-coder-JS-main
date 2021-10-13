@@ -63,7 +63,7 @@
                                                     </tbody>
                                                 </table>
                                                 <p id="precio-total"></p>
-                                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                                                <a href="#" id="vaciar-carrito" class="button u-full-width" onclick="vaciarCarrito()">VaciarCarrito</a>
                                         </div>
                                 </li>
                             </ul>
@@ -78,6 +78,8 @@
                 </div>
             </div>
             </header>
+
+            
             <div class="hero"></div>
     
             <div class="contenido-hero contenedor">
@@ -86,7 +88,9 @@
             </div>
         </div>
 
-
+        <div id="alert">
+                
+        </div>
         <section class="container px-4 px-lg-5 mt-5">
             <h2>SOLO POR ESTE MES 20% DE DESCUENTO</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="descuentos">

@@ -16,30 +16,12 @@ let carrito =[];
 
 
 let acumulador = ``;
-let acumuladorDescuentos = ``;
 let productosCarrito = '';
 
 obtenerProductosPublicitarios();
 
 productos.forEach((producto) => {
-   if(producto.descuento){
-    acumuladorDescuentos += `<div class="col mb-5">
-    <div class="card h-100">
-        <img class="card-img-top" src="${producto.img}" alt="..." />                            
-        <div class="card-body p-4" >
-            <div class="text-center" id="info-card" >
-                <h5 class="fw-bolder"> ${producto.nombre} </h5>
-                <p> $ ${producto.precio} </p>
-            </div>
-        </div>
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"> <button class="btn btn-outline-dark mt-auto"  href="#" onclick="agregarAlCarrito('${producto.nombre}')">Agregar al carrito</button>
-            </div>
-        </div>
-
-    </div>
-</div>`;
-   }else{
+   
     acumulador += `<div class="col mb-5">
     <div class="card h-100">
         <img class="card-img-top" src="${producto.img}" alt="..." />                            
@@ -56,7 +38,7 @@ productos.forEach((producto) => {
 
     </div>
 </div>`;
-   }
+
    
 })
 
@@ -85,7 +67,12 @@ function agregarAlCarrito(titulo){
     document.getElementById('contador-carrito').innerHTML = carrito.length
     document.getElementById('tbody').innerHTML = acumuladorCarrito;
     document.getElementById('precio-total').innerHTML = `Total: ${precioTotal}`;
-
+    document.getElementById('alert').innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Agregaste <strong>${productoEncontrado.nombre}</strong> al carito  
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>`;
 
    
 }
@@ -100,6 +87,14 @@ function agregarAlCarrito(titulo){
         
         document.getElementById('productos-carrito').innerHTML = productosCarrito;
     });
+    
+}
+ function vaciarCarrito(){
+    carrito = [];
+    document.getElementById('contador-carrito').innerHTML = 0
+    document.getElementById('tbody').innerHTML = '';
+    document.getElementById('precio-total').innerHTML = ``;
+    document.getElementById('alert').innerHTML = ``;
     
 }
 
